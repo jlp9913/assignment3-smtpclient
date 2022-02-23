@@ -50,9 +50,6 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
     # Send message data.
     # Fill in start
-    clientSocket.send('From: Me <jlp9913@nyu.edu>\r\n'.encode())
-    clientSocket.send('To: Me <jlp9913@nyu.edu>\r\n'.encode())
-    clientSocket.send('Subject: JP's Test Message \r\n'.encode())
     clientSocket.send(msg.encode())
     # Fill in end
 
