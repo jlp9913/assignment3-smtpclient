@@ -20,7 +20,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     #    print('220 reply not received from server.')
 
     # Send HELO command and print server response.
-    heloCommand = 'HELO Johnny\r\n'
+    heloCommand = 'HELO Alice\r\n'
     clientSocket.send(heloCommand.encode())
     recv1 = clientSocket.recv(1024).decode()
     #print(recv1) 
@@ -31,39 +31,40 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     mailFrom = 'MAIL FROM: <jlp9913@nyu.edu>\r\n'
     clientSocket.send(mailFrom.encode())
-    recv1 = clientSocket.recv(1024).decode()
+    recv2 = clientSocket.recv(1024).decode()
     # Fill in end
 
     # Send RCPT TO command and handle server response.
     # Fill in start
     rcpt= 'RCPT TO: <jlp9913@nyu.edu>\r\n'
     clientSocket.send(rcpt.encode())
-    recv1 = clientSocket.recv(1024).decode()
+    recv3 = clientSocket.recv(1024).decode()
     # Fill in end
 
     # Send DATA command and handle server response.
     # Fill in start
     dataCommand = 'DATA\r\n'
     clientSocket.send(dataCommand.encode())
-    recv1 = clientSocket.recv(1024).decode
+    recv4 = clientSocket.recv(1024).decode
     # Fill in end
 
     # Send message data.
     # Fill in start
     clientSocket.send(msg.encode())
+    recv5 = clientSocket.recv(1024).decode
     # Fill in end
 
     # Message ends with a single period, send message end and handle server response.
     # Fill in start
     clientSocket.send(endmsg.encode())
-    recv1 = clientSocket.recv(1024).decode()
+    recv6 = clientSocket.recv(1024).decode()
     # Fill in end
 
     # Send QUIT command and handle server response.
     # Fill in start
-    quitCommand = 'Quit\r\n'
+    quitCommand = 'QUIT\r\n'
     clientSocket.send(quitCommand.encode())
-    recv1 = clientSocket.recv(1024).decode()
+    recv7 = clientSocket.recv(1024).decode()
     # Fill in end
 
 
